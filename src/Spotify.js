@@ -3,7 +3,7 @@
 // Create and save playlists with specifics tracks 
 
 const clientId = '114c11423c0a4343a83234705f8ea995';
-const redirectUri = 'https://react-jammming-sigma.vercel.app/';
+const redirectUri = 'https://react-jammming-sigma.vercel.app';
 
 // To make authorised requests to Spotify API 
 let accessToken;
