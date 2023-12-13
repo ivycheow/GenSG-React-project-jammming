@@ -1,0 +1,8 @@
+What did you like about this project?
+It helps to deepen my knowledge through the application of components amd state hooks while working on this project.
+
+What did you struggle with in this project?
+Needed to spend time to familiarise myself with the concept of hooks before diving into the project.
+
+What would make your experience with this assessment better?
+NA
