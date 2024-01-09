@@ -5,7 +5,7 @@ import TrackList from "../TrackList/TrackList";
 
 // takes in an object of props - onNameChange, playlistTracks, onRemove, onSave
 const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
 
     // event hander (handleNameChange) - extract target property from the object and calls onNameChange 
   const handleNameChange = ({ target }) => onNameChange(target.value);
