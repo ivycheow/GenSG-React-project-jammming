@@ -17,7 +17,7 @@ const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
   return (
     <div className="Playlist">
         {/* for users to input name of the platlist */}
-        <input onChange={handleNameChange} value={playlistName}></input>
+        <input onChange={handleNameChange} value={playlistName === "New Playlist" ? "" : playlistName}></input>
         <TrackList 
             // contains the list of tracks to be displayed
             tracks={playlistTracks}
