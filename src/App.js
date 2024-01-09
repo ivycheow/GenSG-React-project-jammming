@@ -42,10 +42,10 @@ const App = () => {
 
   return(
     <div>
-      <h1>
-        Jamming
-      </h1>
       <div className='App'>
+        <h1>
+          Jammming
+        </h1>
         <SearchBar onSearch={search} />
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
