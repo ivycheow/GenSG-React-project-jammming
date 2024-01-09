@@ -4,21 +4,23 @@ import "./Playlist.css";
 import TrackList from "../TrackList/TrackList";
 
 // takes in an object of props - onNameChange, playlistTracks, onRemove, onSave
-const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+const Playlist = ( { playlistName, onNameChange, playlistTracks, onRemove, onSave} ) => {
+  const [localPlaylistName, setLocalPlaylistName] = useState(playlistName);
 
     // event hander (handleNameChange) - extract target property from the object and calls onNameChange 
-  const handleNameChange = ({ target }) => setPlaylistName(target.value);
+  const handleNameChange = ({ target }) => setLocalPlaylistName(target.value);
   
   const handleSave = () => {
-    onSave(playlistName);
-    setPlaylistName("New Playlist");
+    const trackUris = playlistTracks.map(track => track.uri);
+    
+    onSave(localPlaylistName, trackUris);
+    setLocalPlaylistName("New Playlist");
   }
 
   return (
     <div className="Playlist">
         {/* for users to input name of the platlist */}
-        <input onChange={handleNameChange} value={playlistName === "New Playlist" ? "" : playlistName} placeholder="New Playlist"></input>
+        <input onChange={handleNameChange} value={localPlaylistName} placeholder="New Playlist"></input>
         <TrackList 
             // contains the list of tracks to be displayed
             tracks={playlistTracks}
