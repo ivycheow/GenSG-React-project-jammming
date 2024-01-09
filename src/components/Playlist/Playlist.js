@@ -8,7 +8,7 @@ const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
   const [playlistName, setPlaylistName] = useState("New Playlist");
 
     // event hander (handleNameChange) - extract target property from the object and calls onNameChange 
-  const handleNameChange = ({ target }) => onNameChange(target.value);
+  const handleNameChange = ({ target }) => setPlaylistName(target.value);
   const handleSave = () => {
     onSave();
     setPlaylistName("New Playlist");
