@@ -1,17 +1,23 @@
-import React from "react";
+import React, {useState} from 'react';
 
 import "./Playlist.css";
 import TrackList from "../TrackList/TrackList";
 
 // takes in an object of props - onNameChange, playlistTracks, onRemove, onSave
 const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
+  const [playlistName, setPlaylistName] = useState("New Playlist");
+
     // event hander (handleNameChange) - extract target property from the object and calls onNameChange 
   const handleNameChange = ({ target }) => onNameChange(target.value);
+  const handleSave = () => {
+    onSave();
+    setPlaylistName("New Playlist");
+  }
 
   return (
     <div className="Playlist">
         {/* for users to input name of the platlist */}
-        <input onChange={handleNameChange} defaultValue={"New Playlist"}></input>
+        <input onChange={handleNameChange} value={playlistName} defaultValue={"New Playlist"}></input>
         <TrackList 
             // contains the list of tracks to be displayed
             tracks={playlistTracks}
@@ -23,7 +29,7 @@ const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
         {/* button for user to save the track into playlist */}
         <button 
             className="savePlaylist"
-            onClick={onSave}>
+            onClick={handleSave}>
                 Save to Spotify
         </button>
     </div>
