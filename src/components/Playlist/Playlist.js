@@ -9,8 +9,9 @@ const Playlist = ( {onNameChange, playlistTracks, onRemove, onSave} ) => {
 
     // event hander (handleNameChange) - extract target property from the object and calls onNameChange 
   const handleNameChange = ({ target }) => setPlaylistName(target.value);
+  
   const handleSave = () => {
-    onSave();
+    onSave(playlistName);
     setPlaylistName("New Playlist");
   }
 
