@@ -72,9 +72,9 @@ const Spotify = {
     },
 
     // to create new playlist on user's Spotify account and adding a list of tracks into that playlist
-    savePlaylist(name, trackUris){
+    savePlaylist(playlistName, trackUris){
         // checks if both parameters exists, otherwise returns early i.e. inputs are invalid
-        if(!name || !trackUris.length) {
+        if(!playlistName || !trackUris.length) {
             return ;
         }
 
@@ -93,7 +93,7 @@ const Spotify = {
                 headers: headers,
                 // 'POST' request, includes the playlist name in the request body 
                 method: 'POST',
-                body: JSON.stringify({name: name})
+                body: JSON.stringify({name: playlistName})
             }).then (response => response.json()
             ).then(jsonResponse => {
                 // store the new platlist's ID in the playlistId variable
